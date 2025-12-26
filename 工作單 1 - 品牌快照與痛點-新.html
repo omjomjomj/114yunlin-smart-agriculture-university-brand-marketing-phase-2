@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Identity Worksheet</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Noto Serif CJK SC';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Noto Serif CJK SC';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Noto Sans Hans';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Noto Sans Hans';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1654px;
+            background-color: #f0f0f0;
+            font-family: 'Noto Sans Hans', sans-serif;
+            color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            width: 1654px;
+            min-height: 2339px; /* A4 aspect ratio at this width */
+            background-color: #ffffff;
+            padding: 100px 110px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header Layout */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #000;
+            padding-bottom: 30px;
+        }
+
+        .header-left {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .main-title {
+            font-family: 'Noto Serif CJK SC', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #000;
+            margin: 0 0 35px 0;
+            line-height: 1.3;
+            letter-spacing: 1px;
+        }
+
+        .meta-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            font-size: 18px;
+            font-family: 'Noto Serif CJK SC', serif;
+        }
+
+        .field-group {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .field-label {
+            font-weight: 700;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .field-input {
+            border-bottom: 1px solid #666;
+            width: 180px;
+            height: 24px;
+        }
+        
+        .field-input.long {
+            width: 250px;
+        }
+
+        .header-right {
+            width: 200px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Instructions */
+        .instructions {
+            background-color: #f7f7f7;
+            border-left: 6px solid #333;
+            padding: 25px 30px;
+            margin-bottom: 50px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .instructions h3 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Noto Serif CJK SC', serif;
+        }
+
+        .instructions p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* Sections Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        .section {
+            break-inside: avoid;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-number {
+            background-color: #000;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Serif CJK SC', serif;
+            font-weight: 700;
+            font-size: 22px;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Noto Serif CJK SC', serif;
+            color: #000;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-left: 15px;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        .writing-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .line {
+            width: 100%;
+            border-bottom: 1.5px dotted #999;
+            height: 40px;
+        }
+        
+        /* Checkbox Grid for Section D */
+        .checkbox-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-family: 'Noto Serif CJK SC', serif;
+            color: #333;
+        }
+
+        .checkbox-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #333;
+            margin-right: 12px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Helper for two column split if needed */
+        .row-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1 class="main-title">識別落地｜工作單 1：品牌快照與痛點（A4）</h1>
+                <div class="meta-fields">
+                    <div class="field-group">
+                        <span class="field-label">姓名：</span>
+                        <div class="field-input"></div>
+                    </div>
+                    <div class="field-group">
+                        <span class="field-label">品牌／專案暱稱：</span>
+                        <div class="field-input long"></div>
+                    </div>
+                    <div class="field-group">
+                        <span class="field-label">日期：</span>
+                        <div class="field-input"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <img src="https://a.lovart.ai/artifacts/user/OhahUEmpK0gbYnUR.png" alt="Logo" class="logo">
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>填寫說明：</h3>
+            <p>請用簡短、具體的詞句填寫所有空格。如果還沒有品牌名稱，可以先取一個工作暱稱（暫定名）。每個答案請控制在 1-2 行內。</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content-grid">
+            
+            <!-- Section A -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">A</div>
+                    <div>
+                        <span class="section-title">品牌現狀與核心</span>
+                        <span class="section-subtitle">主要產品／服務是什麼？目前處於什麼階段？</span>
+                    </div>
+                </div>
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Section B -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">B</div>
+                    <div>
+                        <span class="section-title">目標受眾 (Target Audience)</span>
+                        <span class="section-subtitle">最想吸引的客戶是誰？（年齡、職業、生活方式）</span>
+                    </div>
+                </div>
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Section C -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">C</div>
+                    <div>
+                        <span class="section-title">競爭優勢與價值</span>
+                        <span class="section-subtitle">為什麼客戶會選擇我們而不是別人？最核心的特色是？</span>
+                    </div>
+                </div>
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Section D -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">D</div>
+                    <div>
+                        <span class="section-title">品牌個性關鍵字</span>
+                        <span class="section-subtitle">請勾選 3-5 個符合品牌未來形象的形容詞：</span>
+                    </div>
+                </div>
+                <div class="checkbox-container">
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 專業信頼 (Professional)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 親切友善 (Friendly)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 高端精緻 (Luxury)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 經濟實惠 (Affordable)</div>
+                    
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 創新前衛 (Innovative)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 經典傳統 (Classic)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 活潑有趣 (Playful)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 穩重沈穩 (Stable)</div>
+                    
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 極簡現代 (Minimalist)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 華麗裝飾 (Ornate)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 自然有機 (Natural)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 科技未來 (Tech)</div>
+                    
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 溫暖療癒 (Warm)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 冷靜理智 (Cool)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 手作職人 (Handmade)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> 粗獷工業 (Industrial)</div>
+                </div>
+            </div>
+
+            <!-- Section E & F in two columns if space permits, but list flow is better for writing -->
+            
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">E</div>
+                    <div>
+                        <span class="section-title">現有視覺痛點</span>
+                        <span class="section-subtitle">目前的品牌形象有什麼問題？（如：Logo老舊、識別度低、應用困難...）</span>
+                    </div>
+                </div>
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">F</div>
+                    <div>
+                        <span class="section-title">專案預期目標</span>
+                        <span class="section-subtitle">您希望透過這次設計達成什麼具體成果？</span>
+                    </div>
+                </div>
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>BRAND IDENTITY COURSE WORKBOOK</span>
+            <span>PAGE 01 / 01</span>
+        </div>
+    </div>
+
+</body>
+</html>

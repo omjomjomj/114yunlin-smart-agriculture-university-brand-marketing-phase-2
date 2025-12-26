@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Identity Worksheet</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        /* Base Settings */
+        @font-face {
+            font-family: 'NotoSansHans';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Regular.otf');
+        }
+        @font-face {
+            font-family: 'NotoSansHans-Bold';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Bold.otf');
+        }
+        @font-face {
+            font-family: 'NotoSerifCJKsc-Bold';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Bold.otf');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            font-family: 'NotoSansHans', sans-serif;
+            color: #222;
+        }
+
+        .page-container {
+            width: 1654px;
+            /* A4 Ratio Height approx 2339px, allowing auto for content */
+            min-height: 2339px;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            padding: 80px 100px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 4px solid #000;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        h1 {
+            font-family: 'NotoSerifCJKsc-Bold', serif;
+            font-size: 52px;
+            margin: 0 0 40px 0;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            color: #000;
+        }
+
+        .info-fields {
+            display: flex;
+            gap: 60px;
+            font-size: 24px;
+            font-family: 'NotoSansHans', sans-serif;
+        }
+
+        .field-group {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .field-label {
+            font-weight: bold;
+            margin-right: 15px;
+            white-space: nowrap;
+        }
+
+        .field-input {
+            border-bottom: 2px solid #000;
+            width: 350px;
+            height: 30px;
+        }
+
+        .logo-container {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 40px;
+        }
+
+        .logo-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Instructions Box */
+        .instructions {
+            background-color: #f2f2f2;
+            border-left: 12px solid #000;
+            padding: 25px 35px;
+            margin-bottom: 60px;
+            font-size: 22px;
+            line-height: 1.6;
+        }
+
+        .inst-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 24px;
+        }
+
+        /* Generic Section Styles */
+        .section {
+            border: 2px solid #000;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            position: relative;
+            padding: 50px 40px 40px 40px;
+        }
+
+        .section-tag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 12px 30px;
+            font-size: 26px;
+            font-weight: bold;
+            border-bottom-right-radius: 12px;
+            border-top-left-radius: 10px;
+            font-family: 'NotoSansHans-Bold', sans-serif;
+        }
+
+        /* Section A: Axes */
+        .axes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .axis-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .axis-label {
+            font-size: 26px;
+            font-weight: bold;
+            width: 150px;
+            text-align: center;
+        }
+
+        .scale-track {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 40px;
+            position: relative;
+        }
+
+        .scale-track::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #000;
+            z-index: 0;
+        }
+
+        .scale-point {
+            width: 32px;
+            height: 32px;
+            border: 3px solid #000;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        /* Section B: Keywords */
+        .keywords-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px 60px;
+            margin-bottom: 35px;
+        }
+
+        .keyword-item {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+        }
+
+        .kw-num {
+            font-weight: bold;
+            margin-right: 15px;
+            color: #666;
+            width: 30px;
+        }
+
+        .kw-line {
+            flex: 1;
+            border-bottom: 2px solid #ccc;
+            height: 30px;
+        }
+
+        .final-decision {
+            border-top: 2px dashed #999;
+            padding-top: 25px;
+            margin-top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .final-input {
+            flex: 1;
+            border-bottom: 3px solid #000;
+            margin-left: 20px;
+            height: 35px;
+        }
+
+        /* Section C: Colors */
+        .color-palette {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .color-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .color-name {
+            font-size: 24px;
+            font-weight: bold;
+            width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .color-swatch-placeholder {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #000;
+            display: inline-block;
+        }
+
+        .color-desc {
+            flex: 1;
+            border-bottom: 2px solid #ccc;
+            height: 35px;
+            background: repeating-linear-gradient(45deg, #fafafa, #fafafa 10px, #fff 10px, #fff 20px);
+        }
+
+        /* Section D: Typography */
+        .typo-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cb-box {
+            width: 28px;
+            height: 28px;
+            border: 2px solid #000;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .typo-notes {
+            margin-top: 20px;
+        }
+
+        .notes-label {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .notes-lines {
+            width: 100%;
+            height: 35px;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        /* Section E: Elements */
+        .element-scale {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 0 50px;
+        }
+        
+        .element-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 60px;
+        }
+
+        .el-item {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+        }
+
+        .el-bullet {
+            margin-right: 15px;
+            color: #000;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 18px;
+            color: #888;
+        }
+
+        /* Utility */
+        .u-bold { font-family: 'NotoSansHans-Bold', sans-serif; }
+
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <!-- Header -->
+        <header>
+            <div class="header-left">
+                <h1>識別落地｜工作單 2：視覺風格三軸與關鍵字（A4）</h1>
+                <div class="info-fields">
+                    <div class="field-group">
+                        <span class="field-label">姓名：</span>
+                        <div class="field-input"></div>
+                    </div>
+                    <div class="field-group">
+                        <span class="field-label">品牌／專案暱稱：</span>
+                        <div class="field-input"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="logo-container">
+                <img src="https://a.lovart.ai/artifacts/user/OhahUEmpK0gbYnUR.png" alt="Logo" class="logo-img">
+            </div>
+        </header>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <span class="inst-label">填寫說明：</span>
+            在每條軸線上選擇你偏好的位置。挑選 6-8 個你強烈認同的關鍵字。<br>
+            盡可能寫出具體的例子（顏色、字體、照片場景等）。
+        </div>
+
+        <!-- Section A -->
+        <div class="section">
+            <div class="section-tag">A. 視覺調性光譜 (Visual Tone)</div>
+            <div class="axes-container">
+                <!-- Axis 1 -->
+                <div class="axis-row">
+                    <div class="axis-label">簡約<br><span style="font-size:18px; font-weight:normal; color:#666;">Minimal</span></div>
+                    <div class="scale-track">
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                    </div>
+                    <div class="axis-label">繁複<br><span style="font-size:18px; font-weight:normal; color:#666;">Complex</span></div>
+                </div>
+                <!-- Axis 2 -->
+                <div class="axis-row">
+                    <div class="axis-label">經典<br><span style="font-size:18px; font-weight:normal; color:#666;">Classic</span></div>
+                    <div class="scale-track">
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                    </div>
+                    <div class="axis-label">現代<br><span style="font-size:18px; font-weight:normal; color:#666;">Modern</span></div>
+                </div>
+                <!-- Axis 3 -->
+                <div class="axis-row">
+                    <div class="axis-label">親切<br><span style="font-size:18px; font-weight:normal; color:#666;">Friendly</span></div>
+                    <div class="scale-track">
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                    </div>
+                    <div class="axis-label">權威<br><span style="font-size:18px; font-weight:normal; color:#666;">Authoritative</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section B -->
+        <div class="section">
+            <div class="section-tag">B. 關鍵字海選 (Keywords)</div>
+            <div class="keywords-grid">
+                <div class="keyword-item"><span class="kw-num">01.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">02.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">03.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">04.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">05.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">06.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">07.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">08.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">09.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">10.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">11.</span><div class="kw-line"></div></div>
+                <div class="keyword-item"><span class="kw-num">12.</span><div class="kw-line"></div></div>
+            </div>
+            <div class="final-decision">
+                <span>★ 最終定案 (6-8個)：</span>
+                <div class="final-input"></div>
+            </div>
+        </div>
+
+        <!-- Section C -->
+        <div class="section">
+            <div class="section-tag">C. 色彩計畫 (Color Palette)</div>
+            <div class="color-palette">
+                <div class="color-row">
+                    <div class="color-name">
+                        <span class="color-swatch-placeholder"></span>
+                        主色 Primary
+                    </div>
+                    <div class="color-desc"></div>
+                </div>
+                <div class="color-row">
+                    <div class="color-name">
+                        <span class="color-swatch-placeholder"></span>
+                        輔助色 Secondary
+                    </div>
+                    <div class="color-desc"></div>
+                </div>
+                <div class="color-row">
+                    <div class="color-name">
+                        <span class="color-swatch-placeholder"></span>
+                        點綴色 Accent
+                    </div>
+                    <div class="color-desc"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section D -->
+        <div class="section">
+            <div class="section-tag">D. 字體與排版 (Typography)</div>
+            <div class="typo-options">
+                <div class="checkbox-item"><div class="cb-box"></div> 襯線體 Serif</div>
+                <div class="checkbox-item"><div class="cb-box"></div> 無襯線體 Sans</div>
+                <div class="checkbox-item"><div class="cb-box"></div> 手寫體 Script</div>
+                <div class="checkbox-item"><div class="cb-box"></div> 展示體 Display</div>
+            </div>
+            <div class="typo-notes">
+                <span class="notes-label">排版節奏與備註 (Layout Rhythm & Notes)：</span>
+                <div class="notes-lines"></div>
+                <div class="notes-lines"></div>
+            </div>
+        </div>
+
+        <!-- Section E -->
+        <div class="section" style="margin-bottom: 0;">
+            <div class="section-tag">E. 影像與圖形元素 (Imagery & Elements)</div>
+            
+            <div class="axes-container" style="margin-bottom: 30px;">
+                <div class="axis-row">
+                    <div class="axis-label">具象<br><span style="font-size:18px; font-weight:normal; color:#666;">Concrete</span></div>
+                    <div class="scale-track">
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                        <div class="scale-point"></div>
+                    </div>
+                    <div class="axis-label">抽象<br><span style="font-size:18px; font-weight:normal; color:#666;">Abstract</span></div>
+                </div>
+            </div>
+
+            <div class="notes-label" style="margin-bottom: 15px;">關鍵場景與元素列舉 (Scenes & Elements)：</div>
+            <div class="element-list">
+                <div class="el-item"><span class="el-bullet">■</span> <div class="kw-line"></div></div>
+                <div class="el-item"><span class="el-bullet">■</span> <div class="kw-line"></div></div>
+                <div class="el-item"><span class="el-bullet">■</span> <div class="kw-line"></div></div>
+                <div class="el-item"><span class="el-bullet">■</span> <div class="kw-line"></div></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            Brand Identity Course Worksheet | Designed for Brand Clarity
+        </footer>
+
+    </div>
+
+</body>
+</html>
